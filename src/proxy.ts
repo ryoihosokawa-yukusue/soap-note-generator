@@ -15,9 +15,8 @@ export function proxy(request: NextRequest) {
   if (authHeader) {
     const [scheme, encoded] = authHeader.split(" ");
     if (scheme === "Basic" && encoded) {
-      const decoded = atob(encoded);
-      const [authUser, authPass] = decoded.split(":");
-      if (authUser === user && authPass === pass) {
+      const expected = btoa(`${user}:${pass}`);
+      if (encoded === expected) {
         return NextResponse.next();
       }
     }
