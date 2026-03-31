@@ -24,7 +24,11 @@ export default function OutputPanel({ result, error }: Props) {
         {result && (
           <button
             onClick={handleCopy}
-            className="px-3 py-1 text-xs bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+            className={`px-4 py-1.5 text-sm rounded-lg font-medium transition-colors ${
+              copied
+                ? "bg-green-100 text-green-700"
+                : "bg-blue-600 text-white hover:bg-blue-700"
+            }`}
           >
             {copied ? "コピー済み ✓" : "コピー"}
           </button>

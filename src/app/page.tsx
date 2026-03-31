@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import InputPanel from "@/components/InputPanel";
+import GuidedInputPanel from "@/components/GuidedInputPanel";
 import OutputPanel from "@/components/OutputPanel";
 import PromptEditor from "@/components/PromptEditor";
 
@@ -55,7 +55,10 @@ export default function Home() {
       <div className="flex-1 overflow-hidden p-4">
         <div className="max-w-7xl mx-auto h-full flex flex-col md:flex-row gap-4">
           <div className="flex-1 md:w-1/2">
-            <InputPanel onGenerate={handleGenerate} isLoading={isLoading} />
+            <GuidedInputPanel
+              onGenerate={handleGenerate}
+              isLoading={isLoading}
+            />
           </div>
           <div className="flex-1 md:w-1/2">
             <OutputPanel result={result} error={error} />
